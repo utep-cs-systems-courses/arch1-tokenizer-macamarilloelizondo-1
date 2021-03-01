@@ -4,7 +4,9 @@
    ('\t' or ' ').
    Zero terminator are not printable (therefore false) */
 int space_char(char c){
-
+  if(c == '\t' || c == ' ' || c == '\0')
+    return 0;
+  return 1;
 }
 
 /* Return true (non-zero) if c is a non-whitespace
