@@ -2,12 +2,12 @@
 
 # for convenience, define variable $(OBJS) to list of object files
 
-OBJS = uimain.o tester.o
+OBJS = uimain.o
 
 # make has a "default rule" specifying how to build an "object" file (.o) from a C source file (.c)
 # this rule includes $(CFLAGS) as one of cc's parameters
 
-CFLAGS=g -03 # -g for debug, -03 for optimization
+#CFLAGS=g -03 # -g for debug, -03 for optimization#
 
 # first target is built by default. Usually named "all"
 all: tokenize
@@ -24,3 +24,4 @@ clean:
 
 run:tokenize
 	./tokenize
+
