@@ -12,4 +12,7 @@ int main()
   fgets(in, 1000, stdin);
   int num  = count_words(in);
   printf("How many words to tokenize: %d\n", num);
+  char cString[] = "Hello World\n";
+  char *str = copy_str(cString, 13);
+  print(str);
 }

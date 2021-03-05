@@ -1,5 +1,7 @@
 #include "tokenizer.h"
 #include <stdio.h>
+#include <stdlib.h>
+
 /* Return true (non-zero) if c is a non-whitespace character
    ('\t' or ' ').
    Zero terminator are not printable (therefore false) */
@@ -35,7 +37,7 @@ char *word_start(char *word){
 /* Returns a pointer terminator char following *word. */
 char *word_terminator(char *word){
   if(*word != '\0'){
-    char *np = word;
+    char *np = word; //np means new pointer
     while(non_space_char(*np) != 1){
       np++;
     }
@@ -46,7 +48,7 @@ char *word_terminator(char *word){
 
 /* Counts the number of words in the string argument. */
 int count_words(char *str){
-  char *np = str;
+  char *np = str; //np means new pointer
   int count = 0;
   while(*np){
      np = word_start(np);
@@ -59,7 +61,12 @@ int count_words(char *str){
 /* Returns a freshly allocated new zero-terminated string 
    containing <len> chars from <inStr> */
 char *copy_str(char *inStr, short len){
-  
+  char *np = malloc(sizeof(char) * (len + 1)); //np means new pointer
+  for(int i = 0; i < len; i++){
+    np[i] = inStr[i];
+  }
+  np[len] = '\0';
+  return np;
 }
 
 /* Returns a freshly allocated zero-terminated vector of freshly allocated
@@ -77,12 +84,17 @@ char **tokenize(char* str){
 
 /*Prints all tokens. */
 void print_tokens(char **tokens){
-
+  for(int i = 0; tokens[i] != 0; i++){
+    printf("%s \n", tokens[i]);
+  }
 }
 
 /* Frees all tokens and the vector containing them. */
 void free_tokens(char **tokens){
-
+  for(int i = 0; tokens[i] != 0; i++){
+    free(tokens[i]);
+  }
+  free(tokens);
 }
 
 void print(char *str){
