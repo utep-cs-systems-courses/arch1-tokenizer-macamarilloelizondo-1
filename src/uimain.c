@@ -6,9 +6,10 @@
 
 int main()
 {
-  char in[100];
+  char in[1000];
   printf("Welcome to Tokenizer \n");
   printf("Enter for tokenizing: \n >>");
-  fgets(in, 100, stdin);
-  print(in);
+  fgets(in, 1000, stdin);
+  int num  = count_words(in);
+  printf("How many words to tokenize: %d\n", num);
 }
