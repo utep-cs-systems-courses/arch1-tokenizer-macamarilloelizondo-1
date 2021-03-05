@@ -1,5 +1,5 @@
 #include "tokenizer.h"
-
+#include <stdio.h>
 /* Return true (non-zero) if c is a non-whitespace character
    ('\t' or ' ').
    Zero terminator are not printable (therefore false) */
@@ -21,8 +21,9 @@ int non_space_char(char c){
 /* Returns a pointer to the first character of the next
    space-separated word in zero-terminated str. Return a zero pointer if
    str does not contain any words.*/
-char word_start(char *word){
-
+char *word_start(char *word){
+  
+  
 }
 
 /* Returns a pointer terminator char following *word. */
@@ -56,4 +57,10 @@ void print_tokens(char **tokens){
 /* Frees all tokens and the vector containing them. */
 void free_tokens(char **tokens){
 
+}
+
+void print(char *str){
+  for(; *str != '\0'; str++){
+    printf("Token: %s", str); 
+  }
 }
