@@ -22,18 +22,44 @@ int non_space_char(char c){
    space-separated word in zero-terminated str. Return a zero pointer if
    str does not contain any words.*/
 char *word_start(char *word){
-  
-  
+  if(*word != '\0'){
+    char *np = word; //np means new pointer
+    while(space_char(*np) != 1){
+      np++;
+    }
+    return np;
+  }
+  return word;
 }
 
 /* Returns a pointer terminator char following *word. */
 char *word_terminator(char *word){
-
+  if(*word != '\0'){
+    char *np = word;
+    while(non_space_char(*np) != 1){
+      np++;
+    }
+    return np;
+  }
+  return word;
 }
 
 /* Counts the number of words in the string argument. */
 int count_words(char *str){
+  char *np = str;
+  int count = 0;
+  while(*np){
+     np = word_start(np);
+     np = word_terminator(np);
+     count++;
+  }
+  return count;
+}
 
+/* Returns a freshly allocated new zero-terminated string 
+   containing <len> chars from <inStr> */
+char *copy_str(char *inStr, short len){
+  
 }
 
 /* Returns a freshly allocated zero-terminated vector of freshly allocated
@@ -60,7 +86,5 @@ void free_tokens(char **tokens){
 }
 
 void print(char *str){
-  for(; *str != '\0'; str++){
-    printf("Token: %s", str); 
-  }
+  printf("String: %s", str);
 }
