@@ -4,7 +4,7 @@
    ('\t' or ' ').
    Zero terminator are not printable (therefore false) */
 int space_char(char c){
-  if(c == '\t' || c == ' ' || c == '\0')
+  if(c == '\t' || c == ' ' || c == '\0' || c == 'n')
     return 1;
   return 0;
 }
@@ -13,7 +13,7 @@ int space_char(char c){
    character (not tab or space).
    Zero terminators are not printable (therefore false) */
 int non_space_char(char c){
-  if(c == '\t' || c == ' ' || c == '\0')
+  if(c == '\t' || c == ' ' || c == '\0' || c == '\n')
     return 0;
   return 1;
 }
